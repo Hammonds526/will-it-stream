@@ -28,4 +28,10 @@ $(document).ready(function () {
         console.log(response);
     });
 
+    $('#searchBtn').on('click', function() {
+        console.log("clicked");
+        
+
+    });
+
 });
