@@ -1,37 +1,90 @@
 $(document).ready(function () {
 
-    var titleOMDB = "space+jam";
-    var queryURLOMDB = "https://www.omdbapi.com/?t=" + titleOMDB + "&y=&plot=short&apikey=trilogy";
+    // renders movie details on the screen
+    function renderMovieDetails(poster, title, releaseDate, length) {
+        /*
+            clear div
+            render poster
+            render title
+            render length
+            render description?
 
-    $.ajax({
-        url: queryURLOMDB,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
+         */
+    }
 
-    });
+    // renders possible streaming sites
+    function renderStreamingSites(streamingSites) {
 
-    var titleUtelly = "the%20godfather";
+        // render available streaming sites
 
-    const settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=" + titleUtelly,
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "30665657c2msh03653ffece7aa3ap173f5fjsn540e48f69a45",
-            "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com"
-        }
-    };
+    }
 
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
 
-    $('#searchBtn').on('click', function() {
+    function getMovieDetails() {
+        // Movie Input Variable
+        let movie = $("#inputBox").val();
+
+        console.log("works")
+
+        // API 1 URL
+        var queryURLOMDB = `https://www.omdbapi.com/?t=${movie}&y=&plot=short&apikey=trilogy`;
+        // API 1 being called
+        $.ajax({
+            url: queryURLOMDB,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            const poster = response.Poster
+            const title = response.Title
+            const releaseDate = response.Ratings.Released
+            const length = response.Ratings.Runtime
+            
+
+                renderMovieDetails(poster, title, releaseDate, length)
+
+        });
+    }
+
+    function getStreamingSites() {
+        // API 2 for streaming sites
+        const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movie}`,
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "30665657c2msh03653ffece7aa3ap173f5fjsn540e48f69a45",
+                "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com"
+            }
+        };
+
+        // API 2 being called
+        $.ajax(settings).then(function (response) {
+            console.log(response);
+
+            // get results from API
+            const streamingSites = response.results
+
+            renderStreamingSites(streamingSites)
+
+        });
+
+    }
+
+
+
+
+    // Search Button Function
+    $('#searchBtn').on('click', function () {
         console.log("clicked");
-        
 
+        getMovieDetails()
+        getStreamingSites()
+        renderMovieDetails()
+        renderStreamingSites()
     });
+
+
 
 });
