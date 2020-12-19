@@ -1,18 +1,15 @@
 $(document).ready(function () {
 
     // renders movie details on the screen
-<<<<<<< HEAD
-    function renderMovieDetails(poster, title, score, releaseDate, length) {
+    function renderMovieDetails(poster, title, score, releaseDate, length, error) {
         // poster.append($('#movie-poster'))
         // title.append($('#movie-details'))
         // score.append($('#movie-details'))
         // releaseDate.append($('#movie-details'))
         // length.append($('#movie-details'))
 
-=======
 
     function renderMovieDetails(poster, title, releaseDate, length, error) {
->>>>>>> 07a8d772168d4663285e493a86717e5dbd35d398
 
         /*
             render poster
@@ -64,7 +61,6 @@ $(document).ready(function () {
 
 
 
-<<<<<<< HEAD
             renderMovieDetails(poster, title, score, releaseDate, length)
 
 
@@ -72,14 +68,12 @@ $(document).ready(function () {
 
         });
     }
-=======
             renderMovieDetails(poster, title, releaseDate, length, error)
 
         });
     }
 
     function getStreamingSites() {
->>>>>>> 07a8d772168d4663285e493a86717e5dbd35d398
 
     function getStreamingSites() {
         // Movie Input Variable
