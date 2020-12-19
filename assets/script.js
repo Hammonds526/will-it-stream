@@ -8,7 +8,6 @@ $(document).ready(function () {
         // releaseDate.append($('#movie-details'))
         // length.append($('#movie-details'))
 
-
         /*
             render poster
             render title
@@ -59,7 +58,7 @@ $(document).ready(function () {
 
 
 
-            renderMovieDetails(poster, title, score, releaseDate, length)
+            renderMovieDetails(poster, title, score, releaseDate, length, error)
 
 
 
