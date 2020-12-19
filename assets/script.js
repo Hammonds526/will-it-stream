@@ -1,7 +1,9 @@
 $(document).ready(function () {
 
     // renders movie details on the screen
-    function renderMovieDetails(poster, title, releaseDate, length) {
+    function renderMovieDetails(poster, title, score, releaseDate, length) {
+        $('#movie-info').empty()
+        
         /*
             clear div
             render poster
@@ -37,16 +39,11 @@ $(document).ready(function () {
 
             const poster = response.Poster
             const title = response.Title
-            const releaseDate = response.Ratings.Released
+            const score = response.Ratings[0].Value
+            const releaseDate = response.Released
             const length = response.Ratings.Runtime
 
 
-            renderMovieDetails(poster, title, releaseDate, length)
-
-        });
-    }
-
-    function getStreamingSites() {
         // Movie Input Variable
         let movie2 = $("#inputBox").val();
 
