@@ -1,13 +1,17 @@
 $(document).ready(function () {
 
     // renders movie details on the screen
-
-    function renderMovieDetails(poster, title, releaseDate, length, error) {
+    function renderMovieDetails(poster, title, score, releaseDate, length, error) {
+        // poster.append($('#movie-poster'))
+        // title.append($('#movie-details'))
+        // score.append($('#movie-details'))
+        // releaseDate.append($('#movie-details'))
+        // length.append($('#movie-details'))
 
         /*
-            clear div
             render poster
             render title
+            render IMDB score
             render length
             render description?
 
@@ -54,13 +58,15 @@ $(document).ready(function () {
 
 
 
-            renderMovieDetails(poster, title, releaseDate, length, error)
+            renderMovieDetails(poster, title, score, releaseDate, length, error)
+
+
 
         });
+    
     }
 
     function getStreamingSites() {
-
         // Movie Input Variable
         let movie2 = $("#inputBox").val();
 
@@ -92,17 +98,30 @@ $(document).ready(function () {
 
     }
 
-
-
-
     // Search Button Function
     $('#searchBtn').on('click', function () {
         console.log("clicked");
+        $('#movie-info').empty()
+        $('#inputBox').val("")
 
         getMovieDetails()
         getStreamingSites()
         renderMovieDetails()
     });
+
+    // Search on 'Enter' keypress
+    // $(document).keypress(function (event) {
+    //     var keycode = (event.keyCode ? event.keyCode : event.which);
+    //     if (keycode == '13') {
+
+    //         $('#movie-info').empty()
+    //         $('#inputBox').val("")
+
+    //         getMovieDetails()
+    //         getStreamingSites()
+    //         renderMovieDetails();
+    //     }
+    // });
 
 
 
