@@ -16,7 +16,7 @@ $(document).ready(function () {
 
     // renders possible streaming sites
     function renderStreamingSites(streamingSites) {
-
+        console.log(streamingSites);
         // render available streaming sites
 
     }
@@ -42,21 +42,31 @@ $(document).ready(function () {
             const score = response.Ratings[0].Value
             const releaseDate = response.Released
             const length = response.Ratings.Runtime
-            
 
+<<<<<<< HEAD
                 renderMovieDetails(poster, title, score, releaseDate, length)
+=======
+
+            renderMovieDetails(poster, title, releaseDate, length)
+>>>>>>> 1c1aed664ed2f5769f14b33a0931691283eae857
 
         });
     }
 
     function getStreamingSites() {
+<<<<<<< HEAD
 
         let movie2 = $("#inputBox").val();
+=======
+        // Movie Input Variable
+        let movie2 = $("#inputBox").val();
+
+>>>>>>> 1c1aed664ed2f5769f14b33a0931691283eae857
         // API 2 for streaming sites
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movie}`,
+            "url": `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movie2}`,
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "30665657c2msh03653ffece7aa3ap173f5fjsn540e48f69a45",
@@ -69,10 +79,10 @@ $(document).ready(function () {
             console.log(response);
 
             // get results from API
-            const streamingSites = response.results
-
-            renderStreamingSites(streamingSites)
-
+            // for (var i = 0; i < response.results[0].locations.length; i++) {
+            var streamingSites = response.results[0].locations;
+            renderStreamingSites(streamingSites);
+            //  }
         });
 
     }
@@ -87,7 +97,6 @@ $(document).ready(function () {
         getMovieDetails()
         getStreamingSites()
         renderMovieDetails()
-        renderStreamingSites()
     });
 
 
