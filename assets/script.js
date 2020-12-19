@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     // renders movie details on the screen
+<<<<<<< HEAD
     function renderMovieDetails(poster, title, score, releaseDate, length) {
         // poster.append($('#movie-poster'))
         // title.append($('#movie-details'))
@@ -8,6 +9,10 @@ $(document).ready(function () {
         // releaseDate.append($('#movie-details'))
         // length.append($('#movie-details'))
 
+=======
+
+    function renderMovieDetails(poster, title, releaseDate, length, error) {
+>>>>>>> 07a8d772168d4663285e493a86717e5dbd35d398
 
         /*
             render poster
@@ -17,6 +22,11 @@ $(document).ready(function () {
             render description?
 
          */
+
+        //error message
+        if (error = "Movie not found!") {
+            console.log(error);
+        }
     }
 
     // renders possible streaming sites
@@ -24,6 +34,9 @@ $(document).ready(function () {
         console.log(streamingSites);
         // render available streaming sites
 
+
+        // stop the loading icon
+        $("#searchBtn").removeClass("is-loading");
     }
 
 
@@ -47,7 +60,11 @@ $(document).ready(function () {
             const score = response.Ratings[0].Value
             const releaseDate = response.Released
             const length = response.Ratings.Runtime
+            const error = response.Error
 
+
+
+<<<<<<< HEAD
             renderMovieDetails(poster, title, score, releaseDate, length)
 
 
@@ -55,10 +72,21 @@ $(document).ready(function () {
 
         });
     }
+=======
+            renderMovieDetails(poster, title, releaseDate, length, error)
+
+        });
+    }
+
+    function getStreamingSites() {
+>>>>>>> 07a8d772168d4663285e493a86717e5dbd35d398
 
     function getStreamingSites() {
         // Movie Input Variable
         let movie2 = $("#inputBox").val();
+
+        // Change button to a loading button
+        $("#searchBtn").addClass("is-loading");
 
         // API 2 for streaming sites
         const settings = {
