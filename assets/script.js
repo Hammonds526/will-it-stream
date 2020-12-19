@@ -9,8 +9,6 @@ $(document).ready(function () {
         // length.append($('#movie-details'))
 
 
-    function renderMovieDetails(poster, title, releaseDate, length, error) {
-
         /*
             render poster
             render title
@@ -64,16 +62,10 @@ $(document).ready(function () {
             renderMovieDetails(poster, title, score, releaseDate, length)
 
 
-            renderMovieDetails(poster, title, releaseDate, length)
 
         });
+    
     }
-            renderMovieDetails(poster, title, releaseDate, length, error)
-
-        });
-    }
-
-    function getStreamingSites() {
 
     function getStreamingSites() {
         // Movie Input Variable
