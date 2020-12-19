@@ -8,7 +8,6 @@ $(document).ready(function () {
         // releaseDate.append($('#movie-details'))
         // length.append($('#movie-details'))
 
-
         /*
             render poster
             render title
@@ -17,6 +16,11 @@ $(document).ready(function () {
             render description?
 
          */
+
+        //error message
+        if (error = "Movie not found!") {
+            console.log(error);
+        }
     }
 
     // renders possible streaming sites
@@ -24,6 +28,9 @@ $(document).ready(function () {
         console.log(streamingSites);
         // render available streaming sites
 
+
+        // stop the loading icon
+        $("#searchBtn").removeClass("is-loading");
     }
 
 
@@ -47,18 +54,24 @@ $(document).ready(function () {
             const score = response.Ratings[0].Value
             const releaseDate = response.Released
             const length = response.Ratings.Runtime
+            const error = response.Error
+
+
+
 
             renderMovieDetails(poster, title, score, releaseDate, length)
-
-
-            renderMovieDetails(poster, title, releaseDate, length)
 
         });
     }
 
     function getStreamingSites() {
+
+    function getStreamingSites() {
         // Movie Input Variable
         let movie2 = $("#inputBox").val();
+
+        // Change button to a loading button
+        $("#searchBtn").addClass("is-loading");
 
         // API 2 for streaming sites
         const settings = {
