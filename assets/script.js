@@ -4,6 +4,7 @@ $(document).ready(function () {
     function renderMovieDetails(poster, title, score, releaseDate, length, error) {
         $('#movie-screen').empty()
         $('#movie-poster').empty()
+        $('#inputBox').val("")
         
         // $('#movie-screen').append(poster)
         $('#movie-screen').append(title)
@@ -95,13 +96,12 @@ $(document).ready(function () {
 
 
     // Search Button Function
-    $('#searchBtn').on('click', function () {
+    $('#search-form').submit(function (e) {
         console.log("clicked");
+        e.preventDefault()
 
         getMovieDetails()
         getStreamingSites()
-        renderMovieDetails()
-        renderStreamingSites()
     });
 
 });
