@@ -2,6 +2,10 @@
     margin: auto;
 }
 
+.wrapper {
+    height: 100vh;
+}
+
 .btn {
     height: 40px;
     width: 40px;
@@ -21,18 +25,13 @@ body {
 #movie-screen {
     height: 60%;
     width: 90%;
-    background: pink;
+    background: radial-gradient(rgb(255, 255, 255), rgb(189, 189, 189));
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);   
 }
 
-#theater {
-    background-color: rgb(8, 19, 6);
-    width: 100%;
-    height: 100%;
-}
 
 footer {
   position: fixed;
