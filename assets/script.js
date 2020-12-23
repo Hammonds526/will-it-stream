@@ -2,11 +2,14 @@ $(document).ready(function () {
 
     // renders movie details on the screen
     function renderMovieDetails(poster, title, score, releaseDate, length, error) {
-        // poster.append($('#movie-poster'))
-        // title.append($('#movie-details'))
-        // score.append($('#movie-details'))
-        // releaseDate.append($('#movie-details'))
-        // length.append($('#movie-details'))
+        $('#movie-screen').empty()
+        $('#movie-poster').empty()
+        
+        // $('#movie-screen').append(poster)
+        $('#movie-screen').append(title)
+        $('#movie-screen').append(score)
+        $('#movie-screen').append(releaseDate)
+        $('#movie-screen').append(length)
 
         /*
             render poster
@@ -17,8 +20,8 @@ $(document).ready(function () {
 
          */
 
-        //error message
-        if (error = "Movie not found!") {
+        // error message
+        if (error === "Movie not found!") {
             console.log(error);
         }
     }
@@ -51,33 +54,23 @@ $(document).ready(function () {
 
             const poster = response.Poster
             const title = response.Title
-            const score = response.Ratings[0].Value
-            const releaseDate = response.Released
+            const releaseDate = response.Ratings.Released
             const length = response.Ratings.Runtime
-            const error = response.Error
+            
 
-
-
-            renderMovieDetails(poster, title, score, releaseDate, length, error)
-
-
+                renderMovieDetails(poster, title, releaseDate, length)
 
         });
-    
     }
 
     function getStreamingSites() {
-        // Movie Input Variable
-        let movie2 = $("#inputBox").val();
-
-        // Change button to a loading button
-        $("#searchBtn").addClass("is-loading");
-
         // API 2 for streaming sites
+        let movie = $("#inputBox").val();
+        
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movie2}`,
+            "url": `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movie}`,
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "30665657c2msh03653ffece7aa3ap173f5fjsn540e48f69a45",
@@ -90,23 +83,25 @@ $(document).ready(function () {
             console.log(response);
 
             // get results from API
-            // for (var i = 0; i < response.results[0].locations.length; i++) {
-            var streamingSites = response.results[0].locations;
-            renderStreamingSites(streamingSites);
-            //  }
+            const streamingSites = response.results
+
+            renderStreamingSites(streamingSites)
+
         });
 
     }
 
-    $('#search-form').submit(function(e) {
-        e.preventDefault()
-        $('#movie-info').empty()
-        $('#inputBox').val("")
+
+
+
+    // Search Button Function
+    $('#searchBtn').on('click', function () {
+        console.log("clicked");
 
         getMovieDetails()
         getStreamingSites()
         renderMovieDetails()
-    })
-
+        renderStreamingSites()
+    });
 
 });
