@@ -5,7 +5,7 @@ $(document).ready(function () {
         $('#movie-screen').empty()
         $('#movie-poster').empty()
         $('#inputBox').val("")
-        
+
         // $('#movie-screen').append(poster)
         $('#movie-screen').append(title)
         $('#movie-screen').append(score)
@@ -55,11 +55,13 @@ $(document).ready(function () {
 
             const poster = response.Poster
             const title = response.Title
-            const releaseDate = response.Ratings.Released
+            const score = response.Ratings[0].Value
+            const releaseDate = response.Released
             const length = response.Ratings.Runtime
-            
+            const error = response.Error
 
-                renderMovieDetails(poster, title, releaseDate, length)
+
+            renderMovieDetails(poster, title, score, releaseDate, length, error)
 
         });
     }
@@ -67,7 +69,10 @@ $(document).ready(function () {
     function getStreamingSites() {
         // API 2 for streaming sites
         let movie = $("#inputBox").val();
-        
+
+        // Change button to a loading button
+        $("#searchBtn").addClass("is-loading");
+
         const settings = {
             "async": true,
             "crossDomain": true,
@@ -84,7 +89,7 @@ $(document).ready(function () {
             console.log(response);
 
             // get results from API
-            const streamingSites = response.results
+            var streamingSites = response.results[0].locations;
 
             renderStreamingSites(streamingSites)
 
