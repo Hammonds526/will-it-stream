@@ -98,31 +98,15 @@ $(document).ready(function () {
 
     }
 
-    // Search Button Function
-    $('#searchBtn').on('click', function () {
-        console.log("clicked");
+    $('#search-form').submit(function(e) {
+        e.preventDefault()
         $('#movie-info').empty()
         $('#inputBox').val("")
 
         getMovieDetails()
         getStreamingSites()
         renderMovieDetails()
-    });
-
-    // Search on 'Enter' keypress
-    // $(document).keypress(function (event) {
-    //     var keycode = (event.keyCode ? event.keyCode : event.which);
-    //     if (keycode == '13') {
-
-    //         $('#movie-info').empty()
-    //         $('#inputBox').val("")
-
-    //         getMovieDetails()
-    //         getStreamingSites()
-    //         renderMovieDetails();
-    //     }
-    // });
-
+    })
 
 
 });
