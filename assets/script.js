@@ -45,7 +45,7 @@ $(document).ready(function () {
         console.log("works")
 
         // API 1 URL
-        var queryURLOMDB = `https://www.omdbapi.com/?t=${movie}&y=&plot=short&apikey=trilogy`;
+    var queryURLOMDB = `https://www.omdbapi.com/?i=${movie}&y=&plot=short&apikey=trilogy`;
         // API 1 being called
         $.ajax({
             url: queryURLOMDB,
