@@ -38,34 +38,6 @@ $(document).ready(function () {
     }
 
 
-    function getMovieDetails() {
-        // Movie Input Variable
-        let movie = $("#inputBox").val();
-
-        console.log("works")
-
-        // API 1 URL
-    var queryURLOMDB = `https://www.omdbapi.com/?i=${movie}&y=&plot=short&apikey=trilogy`;
-        // API 1 being called
-        $.ajax({
-            url: queryURLOMDB,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response);
-
-            const poster = response.Poster
-            const title = response.Title
-            const score = response.Ratings[0].Value
-            const releaseDate = response.Released
-            const length = response.Ratings.Runtime
-            const error = response.Error
-
-
-            renderMovieDetails(poster, title, score, releaseDate, length, error)
-
-        });
-    }
-
     function getStreamingSites() {
         // API 2 for streaming sites
         let movie = $("#inputBox").val();
@@ -91,14 +63,42 @@ $(document).ready(function () {
             // get results from API
             var streamingSites = response.results[0].locations;
 
+            var movieID = response.results[0].external_ids.imdb.id;
+
             renderStreamingSites(streamingSites)
+
+            getMovieDetails(movieID)
 
         });
 
     }
 
+    function getMovieDetails(movieID) {
+        // Movie Input Variable
+        
+        console.log("works")
+
+        // API 1 URL
+    var queryURLOMDB = `https://www.omdbapi.com/?i=${movieID}&y=&plot=short&apikey=trilogy`;
+        // API 1 being called
+        $.ajax({
+            url: queryURLOMDB,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            const poster = response.Poster
+            const title = response.Title
+            const score = response.Ratings[0].Value
+            const releaseDate = response.Released
+            const length = response.Ratings.Runtime
+            const error = response.Error
 
 
+            renderMovieDetails(poster, title, score, releaseDate, length, error)
+
+        });
+    }
 
     // Search Button Function
     $('#search-form').submit(function (e) {
