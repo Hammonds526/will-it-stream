@@ -11,6 +11,21 @@
     width: 40px;
 }
 
+#search-form {
+    position: relative;
+}
+
+
+.drop-down {
+    position: fixed;
+    width: 40%;
+    top: 0;
+    left: 30%;
+    right: 45%;
+    bottom: 0;
+    z-index: 1;
+}
+
 #inputBox {
     width: 310px;
     height: 40px;
@@ -21,9 +36,10 @@ body {
     background-color: rgb(8, 19, 6);
 }
 
+
 #movie-screen {
     height: 60%;
-    width: 90%;
+    width: 70%;
     background: radial-gradient(rgb(255, 255, 255), rgb(189, 189, 189));
     position: fixed;
     top: 50%;
