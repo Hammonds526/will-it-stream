@@ -1,16 +1,25 @@
 $(document).ready(function () {
 
     // renders movie details on the screen
-    function renderMovieDetails(poster, title, score, releaseDate, length, error) {
+    function renderMovieDetails(poster, title, score, releaseDate, length, plot, error) {
         $('#movie-screen').empty()
         $('#movie-poster').empty()
         $('#inputBox').val("")
 
-        // $('#movie-screen').append(poster)
-        $('#movie-screen').append(title)
-        $('#movie-screen').append(score)
-        $('#movie-screen').append(releaseDate)
-        $('#movie-screen').append(length)
+        let posterImg = $('<img class="movie-poster">').attr('src', poster)
+        let titleText = $('<h1>').addClass("movie-title").text(title)
+        let scoreText = $('<p>').addClass("movie-details").text(`Score: ${score}`)
+        let releaseText = $('<p>').addClass("movie-details").text(`Release Date: ${releaseDate}`)
+        let lengthText = $('<p>').addClass("movie-details").text(`Movie Length: ${length}`)
+        let plotText = $('<p>').addClass("movie-details").text(plot)
+
+
+        $('#movie-screen').append(posterImg)
+        $('#movie-screen').append(titleText)
+        $('#movie-screen').append(scoreText)
+        $('#movie-screen').append(releaseText)
+        $('#movie-screen').append(lengthText)
+        $('#movie-screen').append(plotText)
 
         /*
             render poster
@@ -75,7 +84,7 @@ $(document).ready(function () {
 
     function getMovieDetails(movieID) {
         // Movie Input Variable
-        
+
         console.log("works")
 
         // API 1 URL
@@ -91,11 +100,12 @@ $(document).ready(function () {
             const title = response.Title
             const score = response.Ratings[0].Value
             const releaseDate = response.Released
-            const length = response.Ratings.Runtime
+            const length = response.Runtime
+            const plot = response.Plot
             const error = response.Error
 
 
-            renderMovieDetails(poster, title, score, releaseDate, length, error)
+            renderMovieDetails(poster, title, score, releaseDate, length, plot, error)
 
         });
     }
