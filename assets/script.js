@@ -34,11 +34,13 @@ $(document).ready(function () {
         if (error === "Movie not found!") {
             console.log(error);
         }
+
+        
+
     }
 
     // renders possible streaming sites
-    function renderStreamingSites(streamingSites) {
-        console.log(streamingSites);
+    function renderStreamingSites() {
         // render available streaming sites
 
 
@@ -48,6 +50,7 @@ $(document).ready(function () {
 
 
     function getStreamingSites() {
+
         // API 2 for streaming sites
         let movie = $("#inputBox").val();
 
@@ -65,31 +68,38 @@ $(document).ready(function () {
             }
         };
 
-        // API 2 being called
+        // API 1 being called
         $.ajax(settings).then(function (response) {
+            console.log('API 1 Works')
             console.log(response);
 
-            // get results from API
-            var streamingSites = response.results[0].locations;
-
             var movieID = response.results[0].external_ids.imdb.id;
-
-            renderStreamingSites(streamingSites)
-
             getMovieDetails(movieID)
+
+            for (let i = 0; i < response.results[0].locations; i++) {
+                let streamingSites = response.results[0].locations[i].icon;
+                let siteLocation = response.results[0].locations[i].url;
+                let icons = $('<a>').attr('href', siteLocation);
+                let iconImage = $('<img class="site-icon">').attr('src', streamingSites);
+                icons.appendChild(iconImage)
+
+                $('#movie-screen').append(icons)
+
+                console.log('it works')
+
+            }
+
+            renderStreamingSites()
 
         });
 
     }
 
     function getMovieDetails(movieID) {
-        // Movie Input Variable
 
-        console.log("works")
-
-        // API 1 URL
+        // API 2 URL
     var queryURLOMDB = `https://www.omdbapi.com/?i=${movieID}&y=&plot=short&apikey=trilogy`;
-        // API 1 being called
+        // API 2 being called
         $.ajax({
             url: queryURLOMDB,
             method: "GET"
@@ -115,7 +125,6 @@ $(document).ready(function () {
         console.log("clicked");
         e.preventDefault()
 
-        getMovieDetails()
         getStreamingSites()
     });
 
