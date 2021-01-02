@@ -76,14 +76,14 @@ $(document).ready(function () {
             var movieID = response.results[0].external_ids.imdb.id;
             getMovieDetails(movieID)
 
-            for (let i = 0; i < response.results[0].locations; i++) {
+            for (let i = 0; i < response.results[0].locations.length; i++) {
                 let streamingSites = response.results[0].locations[i].icon;
                 let siteLocation = response.results[0].locations[i].url;
                 let icons = $('<a>').attr('href', siteLocation);
                 let iconImage = $('<img class="site-icon">').attr('src', streamingSites);
-                icons.appendChild(iconImage)
+                icons.append(iconImage)
 
-                $('#movie-screen').append(icons)
+                $('.wrapper').append(icons)
 
                 console.log('it works')
 
