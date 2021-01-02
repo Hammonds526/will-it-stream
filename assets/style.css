@@ -6,47 +6,54 @@
     height: 100vh;
 }
 
-.btn {
-    height: 40px;
-    width: 40px;
+.drop-down {
+    position: relative;
+    width: 50%;
+    top: 0;
+    left: 25%;
+    right: 50%;
+    bottom: 0;
+    z-index: 2;
+    /* animation: mymove 5s; */
 }
 
 #search-form {
     position: relative;
-}
-
-
-.drop-down {
-    position: fixed;
-    width: 40%;
-    top: 0;
-    left: 30%;
-    right: 45%;
-    bottom: 0;
     z-index: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+    /* transform: translate(150px, 50px); */
 }
 
 #inputBox {
-    width: 310px;
-    height: 40px;
+    width: 70%;
+    height: 50px;
     border-radius: 4%;
+}
+
+.button {
+    height: 50px;
+    width: 50px;
+    border: rgb(61, 61, 61);
+    border-style: solid;
 }
 
 body {
     background-color: rgb(8, 19, 6);
 }
 
-
 #movie-screen {
     height: 60%;
-    width: 70%;
+    width: 75%;
     background: radial-gradient(rgb(255, 255, 255), rgb(189, 189, 189));
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);   
+    z-index: -1;
 }
-
 
 footer {
   position: fixed;
