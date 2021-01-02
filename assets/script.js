@@ -79,7 +79,7 @@ $(document).ready(function () {
             for (let i = 0; i < response.results[0].locations.length; i++) {
                 let streamingSites = response.results[0].locations[i].icon;
                 let siteLocation = response.results[0].locations[i].url;
-                let icons = $('<a>').attr('href', siteLocation);
+                let icons = $('<a>').attr( {href: siteLocation, target: "_blank"} );
                 let iconImage = $('<img class="site-icon">').attr('src', streamingSites);
                 icons.append(iconImage)
 
