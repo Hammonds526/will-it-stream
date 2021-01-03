@@ -4,6 +4,7 @@
 
 .wrapper {
     height: 100vh;
+    margin: auto;
 }
 
 .drop-down {
@@ -53,6 +54,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);   
     z-index: -1;
+    margin: auto;
+    text-align: center;
+   
 }
 
 footer {
@@ -61,4 +65,12 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: rgb(8, 19, 6);
+  }
+
+  .movie-title {
+      font-size: 26px;
+  }
+
+  #col2 {
+      color: white;
   }
