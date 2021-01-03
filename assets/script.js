@@ -67,6 +67,8 @@ $(document).ready(function () {
         // API 1 being called
         $.ajax(settings).then(function (response) {
 
+            console.log(response);
+
             renderStreamingSites(response);
 
             var movieID = response.results[0].external_ids.imdb.id;
@@ -88,6 +90,8 @@ $(document).ready(function () {
             url: queryURLOMDB,
             method: "GET"
         }).then(function (response) {
+
+            console.log(response);
 
             const poster = response.Poster;
             const title = response.Title;
