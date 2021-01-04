@@ -1,12 +1,9 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bulma CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="./assets/style.css">
@@ -16,21 +13,16 @@
 
 <body>
 
-    <div class="container">
+    <section class="section">
 
-        <!-- <img src="./assets/images/sign-03.png" alt="will it stream theater sign"> -->
-        <img src="./assets/images/sign-04.png" alt="theater sign no drop-down" id="sign">
-        <!-- the wrapper div gives the seamless one color background -->
+        <div class="container">
 
-        <div class="wrapper">
-            <div class="content">
-                <form id="search-form">
-                    <input id="inputBox" type="text" placeholder="Search a title here!">
-                    <button id="searchBtn" class="button" type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
+            <img src="./assets/images/sign-04.png" alt="Will It Stream sign" id="sign">
 
-            <!-- <div id="movie-screen"> -->
+            <form id="search-form">
+                <input id="inputBox" type="text" placeholder="Search a title here!">
+                <button id="searchBtn" class="button" type="submit"><i class="fa fa-search"></i></button>
+            </form>
 
             <div class="columns">
                 <div class="column" id="col1">
@@ -39,17 +31,18 @@
                 </div>
             </div>
 
-            <!-- </div> -->
-
         </div>
 
         <footer>
             <img src="./assets/images/seats-08.png">
         </footer>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        <script src="assets/script.js"></script>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="assets/script.js"></script>
+
 </body>
 
 </html>
