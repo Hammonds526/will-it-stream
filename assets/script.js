@@ -20,8 +20,6 @@ $(document).ready(function () {
         $('#col2').append(lengthText);
         $('#col2').append(plotText);
 
-        $('.columns').css('visibility', 'visible');
-
         // error message
         if (error === "Movie not found!") {
             $('#col2').append(errorText);
