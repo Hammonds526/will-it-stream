@@ -1,110 +1,82 @@
-body {
+html {
     background-color: rgb(8, 19, 6);
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
 }
 
-::-webkit-scrollbar {
-    display: none;
+.container {
+    width: 80%;
 }
 
 #sign {
-    width: 50%;
-    height: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-}
-
-/* 
-.content {
-    margin: auto;
-} 
-*/
-
-.wrapper {
-    height: 100vh;
-    margin: auto;
-}
-
-/*
-.drop-down {
     position: relative;
-    width: 75%;
-    left: 13%;
-    top: 0;
-    right: 50%;
-    bottom: 0;
-    z-index: 2;
-    animation: mymove 5s;
+    bottom: 50px;
 }
-*/
 
 #search-form {
     position: relative;
-    z-index: 1;
+    bottom: 50px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    /* transform: translate(150px, 50px); */
 }
 
 #inputBox {
-    width: 35%;
-    height: 50px;
+    width: 250px;
+    height: 40px;
     border-radius: 4%;
 }
 
 .button {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border: rgb(61, 61, 61);
     border-style: solid;
 }
 
 a {
     margin-right: 20px;
+    color: white;
 }
 
-/*
-#movie-screen {
-    height: 60%;
-    width: 75%;
-    background: radial-gradient(rgb(255, 255, 255), rgb(189, 189, 189));
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);   
-    z-index: -1;
-    margin: auto;
-    text-align: center;
+.site-icon {
+    filter: brightness(300%);
 }
-*/
+
+.movie-poster {
+    height: 80%;
+}
 
 .movie-title {
-    font-size: 26px;
+    font-size: 30px;
+    margin-bottom: 3px;
+}
+
+.movie-details {
+    margin-bottom: 3px;
 }
 
 .columns {
-    background: radial-gradient(rgb(255, 255, 255), rgb(189, 189, 189));
-    width: 100%;
-    height: 110%;
+    visibility: hidden;
+    position: relative;
+    bottom: 16px;
+    height: auto;
+    background-color: grey;
+    border-radius: 6px;
 }
 
 #col1 {
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
 #col2 {
-    color: rgb(0, 0, 0);
-    margin-right: 15%;
+    color: rgb(255, 255, 255);
+    margin-right: 20%;
 }
 
 footer {
     position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(8, 19, 6);
+    bottom: -10px;
+    right: 1px;
 }
