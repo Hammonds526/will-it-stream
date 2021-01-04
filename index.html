@@ -16,32 +16,40 @@
 
 <body>
 
-    <div class="drop-down">
-        <img src="./assets/images/sign-03.png" alt="will it stream theater sign">
-        <div class="container">
-            <form id='search-form'>
-                <input id="inputBox" type="text">
-                <button id="searchBtn" class="button" type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-    </div>
-    <div class="wrapper">
-        <div class="content">
+    <div class="container">
 
-            <div id="movie-screen">
-                <div id="site-icons"></div>
+        <!-- <img src="./assets/images/sign-03.png" alt="will it stream theater sign"> -->
+        <img src="./assets/images/sign-04.png" alt="theater sign no drop-down" id="sign">
+        <!-- the wrapper div gives the seamless one color background -->
+
+        <div class="wrapper">
+            <div class="content">
+                <form id="search-form">
+                    <input id="inputBox" type="text" placeholder="Search a title here!">
+                    <button id="searchBtn" class="button" type="submit"><i class="fa fa-search"></i></button>
+                </form>
             </div>
+
+            <!-- <div id="movie-screen"> -->
+
+            <div class="columns">
+                <div class="column" id="col1">
+                </div>
+                <div class="column" id="col2">
+                </div>
+            </div>
+
+            <!-- </div> -->
+
         </div>
-    </div>
-    <footer>
-        <img src="./assets/images/seats-08.png">
-    </footer>
 
+        <footer>
+            <img src="./assets/images/seats-08.png">
+        </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="assets/script.js"></script>
-    </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="assets/script.js"></script>
 </body>
 
 </html>
