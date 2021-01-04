@@ -13,13 +13,14 @@ $(document).ready(function () {
         let plotText = $('<p>').addClass("movie-details").text(plot);
         let errorText = $('<p>').addClass("error-message").text(`Movie not found!`);
 
-
         $('#col1').append(posterImg);
         $('#col2').append(titleText);
         $('#col2').append(scoreText);
         $('#col2').append(releaseText);
         $('#col2').append(lengthText);
         $('#col2').append(plotText);
+
+        $('.columns').css('visibility', 'visible');
 
         // error message
         if (error === "Movie not found!") {
