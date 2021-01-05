@@ -19,8 +19,7 @@ $(document).ready(function () {
         $('#col2').append(releaseText);
         $('#col2').append(lengthText);
         $('#col2').append(plotText);
-
-        $('.columns').css(`z-index`, `0`)
+        
 
         // error message
         if (error === "Movie not found!") {
@@ -102,16 +101,12 @@ $(document).ready(function () {
             const plot = response.Plot;
             const error = response.Error;
 
+            
+
             renderMovieDetails(poster, title, score, releaseDate, length, plot, error);
 
         });
     }
-
-    $("#search-form").on("click", function () {
-
-        $('.columns').css(`z-index`, `-1`);
-
-    });
 
 
     // Search Button Function
