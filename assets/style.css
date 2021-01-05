@@ -2,10 +2,6 @@ html {
     background-color: rgb(8, 19, 6);
 }
 
-.container {
-    width: 80%;
-}
-
 #sign {
     display: block;
     margin-left: auto;
@@ -37,15 +33,12 @@ html {
 
 a {
     margin-right: 20px;
-    color: white;
-}
-
-.site-icon {
-    filter: brightness(300%);
 }
 
 .movie-poster {
-    height: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .movie-title {
@@ -58,21 +51,70 @@ a {
 }
 
 .columns {
-    visibility: hidden;
-    position: relative;
-    bottom: 16px;
-    height: auto;
-    background-color: grey;
-    border-radius: 6px;
+    overflow-y: auto; 
+    position: fixed;
+    height: 73%;
+    width: 75%;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    background: radial-gradient(rgb(255, 255, 255), rgb(189, 189, 189));
+    border-radius: 8px;
+    z-index: -1;
+    border:2px solid rgb(0, 0, 0);
+   -moz-box-shadow: 2px 2px 2px rgb(24, 24, 24);
+   -webkit-box-shadow: 2px 2px 2px rgb(24, 24, 24);
+    box-shadow: 2px 2px 2px rgb(24, 24, 24);
+   -moz-border-radius: 8px;
+   -webkit-border-radius: 8px;
+   padding: 20px;
 }
 
-#col1 {
-    margin-left: 20%;
+@media screen and (max-width: 768px) {
+        .columns {
+            height: 74%;
+            width: 90%;
+            top: 60%;
+            left: 52%;
+        }
+
+        #sign {
+            width: 390px;
+        }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .columns {
+        height: 68%;
+        width: 90%;
+        top: 60%;
+        left: 52%;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+    .columns {
+        height: 66%;
+        width: 90%;
+        top: 58%;
+        left: 51%;
+    }
+}
+
+@media screen and (min-width: 1216px) and (max-width: 1407px) {
+    .columns {
+        height: 66%;
+        width: 90%;
+        top: 57%;
+        left: 51%;
+    }
 }
 
 #col2 {
-    color: rgb(255, 255, 255);
-    margin-right: 20%;
+    color: rgb(0, 0, 0);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer {
