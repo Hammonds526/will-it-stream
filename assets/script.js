@@ -10,7 +10,7 @@ $(document).ready(function () {
         let scoreText = $('<p>').addClass("movie-details").text(`Score: ${score}`);
         let releaseText = $('<p>').addClass("movie-details").text(`Release Date: ${releaseDate}`);
         let lengthText = $('<p>').addClass("movie-details").text(`Movie Length: ${length}`);
-        let plotText = $('<p>').addClass("movie-details").text(plot);
+        let plotText = $('<p>').addClass("movie-plot").text(plot);
         let errorText = $('<p>').addClass("error-message").text(`Movie not found!`);
 
         $('#col1').append(posterImg);
@@ -20,7 +20,7 @@ $(document).ready(function () {
         $('#col2').append(lengthText);
         $('#col2').append(plotText);
 
-        $('.columns').css(`z-index`, `0`)
+        // $('.columns').css(`z-index`, `0`)
 
         // error message
         if (error === "Movie not found!") {
@@ -90,34 +90,32 @@ $(document).ready(function () {
             getMovieDetails(movieID);
 
             let movieID2 = response.results[1].external_ids.imdb.id;
-        
+
             if (response.results[0].name === response.results[1].name) {
-                console.log("yes")
-                
-                    for (let i = 0; i < response.results[1].locations.length; i++) {
-            
-                        let streamingSites = response.results[1].locations[i].icon;
-                        let siteLocation = response.results[1].locations[i].url;
-                        let icons = $('<a>').attr({ href: siteLocation, target: "_blank" });
-                        let iconImage = $('<img class="site-icon">').attr('src', streamingSites);
-                        icons.append(iconImage);
-            
-                        $('#col2').append(icons);
-            
-                    }
-                
+
+                console.log("yes");
+
+                for (let i = 0; i < response.results[1].locations.length; i++) {
+
+                    let streamingSites = response.results[1].locations[i].icon;
+                    let siteLocation = response.results[1].locations[i].url;
+                    let icons = $('<a>').attr({ href: siteLocation, target: "_blank" });
+                    let iconImage = $('<img class="site-icon">').attr('src', streamingSites);
+                    icons.append(iconImage);
+
+                    $("#col2").append(icons);
+
+                };
 
                 getMovieDetails(movieID2);
-                
-                
-                
-            }
+
+            };
 
             $("#searchBtn").removeClass("is-loading");
 
         });
 
-    }
+    };
 
     function getMovieDetails(movieID) {
 
@@ -143,14 +141,13 @@ $(document).ready(function () {
             renderMovieDetails(poster, title, score, releaseDate, length, plot, error);
 
         });
-    }
+    };
 
-    $("#search-form").on("click", function () {
+    //$("#search-form").on("click", function () {
 
-        $('.columns').css(`z-index`, `-1`);
+    //   $('.columns').css(`z-index`, `-1`);
 
-    });
-
+    // });
 
     // Search Button Function
     $('#search-form').submit(function (e) {
