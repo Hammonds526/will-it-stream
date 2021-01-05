@@ -24,6 +24,10 @@ html {
     border-radius: 4%;
 }
 
+.animate__animated.animate__bounce {
+    --animate-duration: 1.5s;
+  }
+
 .button {
     height: 40px;
     width: 40px;
