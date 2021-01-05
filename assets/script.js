@@ -42,12 +42,26 @@ $(document).ready(function () {
             $('#col2').append(icons);
 
         }
-
     }
+
+    // function renderStreamingSites2() {
+
+    //     for (let i = 0; i < response.results[1].locations.length; i++) {
+
+    //         let streamingSites = response.results[1].locations[i].icon;
+    //         let siteLocation = response.results[1].locations[i].url;
+    //         let icons = $('<a>').attr({ href: siteLocation, target: "_blank" });
+    //         let iconImage = $('<img class="site-icon">').attr('src', streamingSites);
+    //         icons.append(iconImage);
+
+    //         $('#col2').append(icons);
+
+    //     }
+    // }
 
     function getStreamingSites() {
 
-        // API 2 for streaming sites
+        // API 1 for streaming sites
         let movie = $("#inputBox").val();
 
         // Change button to a loading button
@@ -74,6 +88,30 @@ $(document).ready(function () {
 
             var movieID = response.results[0].external_ids.imdb.id;
             getMovieDetails(movieID);
+
+            let movieID2 = response.results[1].external_ids.imdb.id;
+        
+            if (response.results[0].name === response.results[1].name) {
+                console.log("yes")
+                
+                    for (let i = 0; i < response.results[1].locations.length; i++) {
+            
+                        let streamingSites = response.results[1].locations[i].icon;
+                        let siteLocation = response.results[1].locations[i].url;
+                        let icons = $('<a>').attr({ href: siteLocation, target: "_blank" });
+                        let iconImage = $('<img class="site-icon">').attr('src', streamingSites);
+                        icons.append(iconImage);
+            
+                        $('#col2').append(icons);
+            
+                    }
+                
+
+                getMovieDetails(movieID2);
+                
+                
+                
+            }
 
             $("#searchBtn").removeClass("is-loading");
 
