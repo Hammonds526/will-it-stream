@@ -43,6 +43,7 @@ a {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px;
 }
 
 .movie-title {
@@ -54,31 +55,34 @@ a {
     margin-bottom: 3px;
 }
 
+.movie-plot {
+    margin-bottom: 195px;
+}
+
 .columns {
     overflow-y: auto; 
     position: fixed;
-    height: 73%;
+    height: 67%;
     width: 75%;
-    top: 52%;
+    top: 57%;
     left: 50%;
     transform: translate(-50%, -50%);  
     background: radial-gradient(rgb(255, 255, 255), rgb(189, 189, 189));
     border-radius: 8px;
-    z-index: -1;
     border:2px solid rgb(0, 0, 0);
    -moz-box-shadow: 2px 2px 2px rgb(24, 24, 24);
    -webkit-box-shadow: 2px 2px 2px rgb(24, 24, 24);
     box-shadow: 2px 2px 2px rgb(24, 24, 24);
    -moz-border-radius: 8px;
    -webkit-border-radius: 8px;
-   padding: 20px;
+    padding: 20px;
 }
 
 @media screen and (max-width: 768px) {
-        .columns {
-            height: 74%;
+    .columns {
+            height: 69%;
             width: 90%;
-            top: 60%;
+            top: 63%;
             left: 52%;
         }
 
@@ -98,18 +102,18 @@ a {
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
     .columns {
-        height: 66%;
+        height: 70%;
         width: 90%;
-        top: 58%;
+        top: 59%;
         left: 51%;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
     .columns {
-        height: 66%;
+        height: 62%;
         width: 90%;
-        top: 57%;
+        top: 58%;
         left: 51%;
     }
 }
