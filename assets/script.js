@@ -14,7 +14,7 @@ $(document).ready(function () {
         let releaseText = $('<p>').addClass("movie-details").text(`Release Date: ${releaseDate}`);
         let lengthText = $('<p>').addClass("movie-details").text(`Movie Length: ${length}`);
         let plotText = $('<p>').addClass("movie-details").text(plot);
-        let errorText = $('<p>').addClass("error-message").text(`Movie not found!`);
+        // let errorText = $('<p>').addClass("error-message").text(`Movie not found!`);
 
         let newRow = $(`<div class="columns">`);
         let newCol1 = $(`<div class="column" id="col1">`);
@@ -32,9 +32,9 @@ $(document).ready(function () {
         $(".movie-screen").append(newRow);
 
         // error message
-        if (error === "Movie not found!") {
-            $('#col2').append(errorText);
-        }
+        // if (error === "Movie not found!") {
+        //    $('#col2').append(errorText);
+        // }
 
     }
 
@@ -77,7 +77,7 @@ $(document).ready(function () {
         let movie = $("#inputBox").val();
 
         // Change button to a loading button
-        $("#searchBtn").addClass("is-loading");
+        //$("#searchBtn").addClass("is-loading");
 
         const settings = {
             "async": true,
@@ -126,7 +126,7 @@ $(document).ready(function () {
 
             };
 
-            $("#searchBtn").removeClass("is-loading");
+            //$("#searchBtn").removeClass("is-loading");
 
         });
 
