@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    let streamingRow = $(`<div class="columns">`);
+    let streamingCol = $(`<div class="column" id="streaming">`);
+
     // renders movie details on the screen
     function renderMovieDetails(poster, title, score, releaseDate, length, plot, error) {
 
@@ -10,17 +13,23 @@ $(document).ready(function () {
         let scoreText = $('<p>').addClass("movie-details").text(`Score: ${score}`);
         let releaseText = $('<p>').addClass("movie-details").text(`Release Date: ${releaseDate}`);
         let lengthText = $('<p>').addClass("movie-details").text(`Movie Length: ${length}`);
-        let plotText = $('<p>').addClass("movie-plot").text(plot);
+        let plotText = $('<p>').addClass("movie-details").text(plot);
         let errorText = $('<p>').addClass("error-message").text(`Movie not found!`);
 
-        $('#col1').append(posterImg);
-        $('#col2').append(titleText);
-        $('#col2').append(scoreText);
-        $('#col2').append(releaseText);
-        $('#col2').append(lengthText);
-        $('#col2').append(plotText);
+        let newRow = $(`<div class="columns">`);
+        let newCol1 = $(`<div class="column" id="col1">`);
+        let newCol2 = $(`<div class="column" id="col2">`);
 
-        // $('.columns').css(`z-index`, `0`)
+        newCol1.append(posterImg);
+        newCol2.append(titleText);
+        newCol2.append(scoreText);
+        newCol2.append(releaseText);
+        newCol2.append(lengthText);
+        newCol2.append(plotText);
+
+        newRow.append(newCol1, newCol2);
+
+        $(".movie-screen").append(newRow);
 
         // error message
         if (error === "Movie not found!") {
@@ -39,10 +48,13 @@ $(document).ready(function () {
             let iconImage = $('<img class="site-icon">').attr('src', streamingSites);
             icons.append(iconImage);
 
-            $('#col2').append(icons);
+            streamingCol.append(icons);
 
-        }
-    }
+        };
+
+        streamingRow.append(streamingCol);
+        $(".movie-screen").append(streamingRow);
+    };
 
     // function renderStreamingSites2() {
 
@@ -103,9 +115,12 @@ $(document).ready(function () {
                     let iconImage = $('<img class="site-icon">').attr('src', streamingSites);
                     icons.append(iconImage);
 
-                    $("#col2").append(icons);
+                    streamingCol.append(icons);
 
                 };
+
+                streamingRow.append(streamingCol);
+                $(".movie-screen").append(streamingRow);
 
                 getMovieDetails(movieID2);
 
@@ -143,17 +158,12 @@ $(document).ready(function () {
         });
     };
 
-    //$("#search-form").on("click", function () {
-
-    //   $('.columns').css(`z-index`, `-1`);
-
-    // });
-
     // Search Button Function
     $('#search-form').submit(function (e) {
 
-        $('#col1').empty();
-        $('#col2').empty();
+        $('.movie-screen').empty();
+        streamingRow.empty();
+        streamingCol.empty();
 
         e.preventDefault();
 
